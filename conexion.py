@@ -12,9 +12,12 @@ class ConexionBD:
                 database='coloquio'
             )
             if self.conexion.is_connected():
-                print("Conexión exitosa a la base de datos.")
+                print("¡Conexión exitosa a la base de datos!")  # Mensaje de confirmación
+
         except Error as ex:
-            print("Error al intentar conexión con la base de datos: {0}".format(ex))
+            print("Error al intentar conexión con la base de datos:")
+            print("Tipo de error:", type(ex))
+            print("Mensaje de error completo:", str(ex))
 
     def cerrar_bd(self):
         if self.conexion.is_connected():

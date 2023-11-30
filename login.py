@@ -1,5 +1,28 @@
 import mysql.connector
-from conexion import Error, ConexionBD
+
+class GestorUsuarios:
+    def __init__(self, conexion):
+        self.conexion = conexion
+
+    def registrar_usuario(self, usuario, contrasena):
+        try:
+            cursor = self.conexion.cursor()
+
+            insercion = "INSERT INTO usuarios (nombre, contraseña) VALUES (%s, %s)"
+            datos_usuario = (usuario, contrasena)
+            print("Intentando insertar datos:", datos_usuario)
+
+            cursor.execute(insercion, datos_usuario)
+            self.conexion.commit()
+
+            cursor.close()
+
+            print("¡Usuario registrado exitosamente!")
+
+        except mysql.connector.Error as ex:
+            print("Error al intentar registrar usuario:")
+            print("Tipo de error:", type(ex))
+            print("Mensaje de error completo:", str(ex))
 
 class GestorLogin:
     def __init__(self):
@@ -30,3 +53,6 @@ class GestorLogin:
 
         except mysql.connector.Error as ex:
             print("Error al intentar iniciar sesión: {0}".format(ex))
+
+#Mensaje de error completo: Unread result found, Me da este error a la hora de registrar usuarios,
+#fuera de eso el programa funciona perfectamente, no he podido encontrar solución al mismo
