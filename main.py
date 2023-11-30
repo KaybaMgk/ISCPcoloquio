@@ -1,26 +1,37 @@
+from login import GestorLogin
 from funciones import leyes as GestorLeyes
 
-def menu():
-    continuar = True
-    while continuar:
-        opcionCorrecta = False
-        while not opcionCorrecta:
-            print("==================== MENÚ PRINCIPAL ====================")
-            print("1.- Listar leyes")
-            print("2.- Registrar ley")
-            print("3.- Actualizar ley")
-            print("4.- Eliminar ley")
-            print("5.- Salir")
-            print("========================================================")
-            try:
-                opcion = int(input("Seleccione una opción: "))
-                if opcion < 1 or opcion > 5:
-                    print("Opción incorrecta, ingrese nuevamente")
-                else:
-                    opcionCorrecta = True
-                    continuar = ejecutarOpcion(opcion)
-            except ValueError:
-                print("Opción no válida, ingrese un número válido.")
+def ejecutar_programa():
+    gestor_login = GestorLogin()
+    usuario = input("Ingrese su nombre de usuario: ")
+    contrasena = input("Ingrese su contraseña: ")
+
+    if gestor_login.iniciar_sesion(usuario, contrasena):
+        continuar = True
+        while continuar:
+            opcionCorrecta = False
+            while not opcionCorrecta:
+                print("==================== MENÚ PRINCIPAL ====================")
+                print("1.- Listar leyes")
+                print("2.- Registrar ley")
+                print("3.- Actualizar ley")
+                print("4.- Eliminar ley")
+                print("5.- Salir")
+                print("========================================================")
+                try:
+                    opcion = int(input("Seleccione una opción: "))
+                    if opcion < 1 or opcion > 5:
+                        print("Opción incorrecta, ingrese nuevamente")
+                    else:
+                        opcionCorrecta = True
+                        continuar = ejecutarOpcion(opcion)
+                except ValueError:
+                    print("Opción no válida, ingrese un número válido.")
+
+                if opcion == 5:
+                    continuar = False
+    else:
+        print("Inicio de sesión fallido.")
 
 def ejecutarOpcion(opcion):
         gestor_leyes = GestorLeyes()
@@ -74,4 +85,7 @@ def ejecutarOpcion(opcion):
 
         return True
 
-menu()
+if __name__ == "__main__":
+    ejecutar_programa()
+
+

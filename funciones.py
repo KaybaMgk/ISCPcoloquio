@@ -14,6 +14,7 @@ class leyes:
         except Error as ex:
             print("Error al intentar la conexión con la base de datos: {0}".format(ex))
 
+
     def registrar_ley(self, datos_ley):
         try:
             cursor = self.conexion.cursor()
@@ -27,7 +28,7 @@ class leyes:
     def actualizar_ley(self, id_ley, datos_actualizados):
         try:
             cursor = self.conexion.cursor()
-            sql = "UPDATE leyes SET nro_leyes=%s, fecha=%s, descripcion=%s, categoria=%s, jurisdiccion=%s, or_legislativo=%s, palabra_clave=%s WHERE id_leyes=%s"
+            sql = "UPDATE leyes SET nro_leyes=%s, fecha=%s, descripcion=%s, categoria=%s, jurisdiccion=%s, or_legislativo=%s, palabra_clave=%s WHERE nro_leyes=%s"
             cursor.execute(sql, (*datos_actualizados, id_ley))
             self.conexion.commit()
             print("¡Ley actualizada!\n")

@@ -13,6 +13,11 @@ try:
 
     cursor = conexión.cursor()
 
+
+    usuario = ("ISCP", "1234")
+    query_usuario = "INSERT INTO usuarios (nombre, contraseña) VALUES (%s, %s)"
+    cursor.execute(query_usuario, usuario)
+
     leyes = [
         (20774, "1974-09-29", "Esta ley regula las relaciones laborales entre empleadores y empleados en el país. Establece los derechos y obligaciones laborales, abarcando temas como contratación, remuneración, horarios, vacaciones, licencias y protección laboral. Su objetivo es proteger los derechos de los trabajadores y promover condiciones laborales justas y equitativas.", "Laboral.", "Nacional.", "Congreso de la Nación.", """Teletrabajo, Trabajo remoto, Derechos laborales, Obligaciones laborales, Jornada laboral, Desconexión digital, Compensación de gastos, Salud y seguridad laboral Acuerdo de teletrabajo."""),
         (27555, "2020-07-14", "Esta ley establece los derechos y obligaciones tanto de los empleadores como de los trabajadores en el ámbito del teletrabajo. Aborda aspectos como la jornada laboral, la desconexión digital, la compensación de gastos y la protección de la salud y seguridad laboral. Su objetivo es garantizar condiciones justas y equitativas para los trabajadores que desempeñan sus labores de forma remota.", "Laboral", "Nacional", "Congreso de la nación", """Teletrabajo, Trabajo remoto, Derechos laborales, Obligaciones laborales, Jornada laboral, Desconexión digital, Compensación de gastos, Salud y seguridad laboral Acuerdo de teletrabajo."""),
@@ -24,8 +29,6 @@ try:
     ]
 
     query = "INSERT INTO leyes (nro_leyes, fecha, descripcion, categoria, jurisdiccion, or_legislativo, palabra_clave) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-
-    cursor.executemany(query, leyes)
 
 
     conexión.commit()

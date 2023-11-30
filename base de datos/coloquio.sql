@@ -12,4 +12,12 @@ or_legislativo VARCHAR(200),
 palabra_clave VARCHAR(200)
 );
 
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    contraseña VARCHAR(100) NOT NULL
+);
+
+
 select * from leyes;
+select * from usuarios;
