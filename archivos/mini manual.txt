@@ -1,0 +1,19 @@
+USUARIO: ISCP (Mayus)
+CONTRASEÑA: 1234
+
+
+Manual de Usuario:
+
+Durante la sesión en el programa, puedes realizar las siguientes acciones sobre las leyes registradas en la base de datos:
+
+1-Listar todas las leyes registradas: Esta opción te permite ver todas las leyes almacenadas en la base de datos.
+
+2-Registrar una nueva ley: Ingresa los datos pertinentes para registrar una nueva ley en la base de datos, como número de ley, fecha, descripción, categoría, jurisdicción, órgano legislativo y palabra clave.
+
+3-Actualizar una ley registrada: Actualiza los detalles de una ley existente proporcionando su número. Puedes ingresar la nueva fecha, descripción, categoría, jurisdicción, órgano legislativo o palabra clave.
+
+4-Eliminar una ley: Elimina una ley existente al ingresar su número. Por ejemplo, si deseas eliminar la ley número 20,000, simplemente introduce "20000".
+
+5-Cerrar el programa: Finaliza la sesión y cierra el programa.
+
+¡Disfruta usando el programa!
